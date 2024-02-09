@@ -1,0 +1,18 @@
+.nav{
+  width: 80%;
+  padding: 20px;
+  margin: auto;
+}
+
+.nav a{
+  display: inline-block;
+  padding: 30px;
+  color: rgb(152, 205, 255);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: all 1000ms;
+}
+
+.nav a:hover{
+  color: rgb(240, 189, 196);
+}

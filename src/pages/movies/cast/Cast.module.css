@@ -1,0 +1,28 @@
+.header{
+  display: flex;
+  letter-spacing: 0.1rem;
+  color: aliceblue;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.header::before,
+.header::after{
+  display: inline-block;
+  content: "";
+  width: 70px;
+  height: 1px;
+  background-color: rgb(162, 169, 175);
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.item{
+  padding: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #00000031;
+  border-right: 1px solid #00000031;
+  letter-spacing: 0.1rem;
+  background-color: rgb(68, 73, 87);
+}
