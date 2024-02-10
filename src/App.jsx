@@ -21,6 +21,7 @@ const MovieCardReviews = lazy(() =>
 const WebAppTemplate = lazy(() =>
   import("./components/webAppTemplate/WebAppTemplate.jsx")
 );
+const NotExist = lazy(() => import("./components/notExist/NotExist.jsx"))
 
 const App = () => {
   const [trending, setTrending] = useState([]);
@@ -131,6 +132,7 @@ const App = () => {
             />
           </Route>
         </Route>
+        <Route path="*" element={<NotExist/>}/>
       </Routes>
     </>
   );

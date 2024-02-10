@@ -4,7 +4,7 @@ import indexStyles from "./Index.module.css";
 
 const Movies = ({ setInputValue, fetchApiKeyword, searchedMovies }) => {
   const searchedList =
-    searchedMovies.length === 0
+    searchedMovies?.length === 0
       ? null
       : searchedMovies.map((movie) => (
           <li key={movie.id} className={indexStyles.item}>
