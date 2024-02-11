@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation, Link, Outlet } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Link, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // function imports
@@ -8,11 +8,12 @@ import { fetchApiById, fetchApiConfig } from "../../../service/fetchFn.js";
 import movieStyles from "./Movie.module.css";
 
 const Movie = ({ handlingLoadingCast, handlingLoadingReviews }) => {
+  const navigate = useNavigate();
   const [imageBaseUrlLarge, setImageBaseUrlLarge] = useState("");
   const [details, setDetails] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-
+  
   const movieDetails = (
     <div>
       <div className={movieStyles.movieSpace}>
@@ -42,11 +43,11 @@ const Movie = ({ handlingLoadingCast, handlingLoadingReviews }) => {
   useEffect(() => {
     fetchApiConfig()
       .then((image) => {
-        // console.log(image);
         setImageBaseUrlLarge(image.base_url + image.poster_sizes[3]);
       })
       .then(() => {
         fetchApiById(movieId).then((movie) => {
+          if(!movie) navigate("/movies");
           const year = new Date(`${movie.data.release_date}`)
             .getFullYear()
             .toString();
@@ -62,11 +63,14 @@ const Movie = ({ handlingLoadingCast, handlingLoadingReviews }) => {
             genres,
           });
         });
-      });
-  }, [imageBaseUrlLarge, movieId]);
+      })
+      .catch(() => {
+        navigate("/movies")
+      })
+  }, [imageBaseUrlLarge, movieId, navigate, location]);
   return (
     <div className={movieStyles.container}>
-      <Link to={location.state.from} className={movieStyles.backLink}>
+      <Link to={ location.state?.from?location.state.from:null} className={movieStyles.backLink}>
         go back
       </Link>
       {movieDetails}

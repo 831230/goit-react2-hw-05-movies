@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import homeStyles from "./Home.module.css";
 
 const Home = ({ trending }) => {
-  // console.log(trending);
   const trendingList =
     trending.length === 0 ? (
       <p>Today we have not trending movies</p>
