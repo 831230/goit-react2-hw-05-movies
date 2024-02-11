@@ -1,16 +1,29 @@
-import Nav from "../navigation/Nav";
-import WebAppTemplateStyles from "../webAppTemplate/WebAppTemplate.module.css"
+import { startTransition } from "react";
+import { useNavigate } from "react-router-dom";
+import NotExistStyles from "./NotExist.module.css";
 
 const NotExist = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (evt) => {
+    const navString = evt.target.innerText==="home"?"":evt.target.innerText;
+    startTransition(()=>{
+      navigate(`/${navString}`)
+    })
+    
+  }
+
   return ( 
-    <>
-    <header className={WebAppTemplateStyles.header}>
-        <Nav/>
-      </header>
-    <div>
-      <h2>The specified page does not exist</h2>
+    <div className={NotExistStyles.notExistContainer}>
+      <div>
+        <h2 className={NotExistStyles.header}>The specified page does not exist</h2>
+      </div>
+      <h3>Go to</h3>
+      <div className={NotExistStyles.btnContainer}>
+        <button className={NotExistStyles.button} type="button" onClick={handleNavigate}>home</button>
+        <button className={NotExistStyles.button} onClick={handleNavigate}>movies</button>
+      </div>
     </div>
-    </>
    );
 }
  

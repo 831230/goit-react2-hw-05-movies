@@ -1,0 +1,38 @@
+.notExistContainer{
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  height: 30vh;
+  width: 70vw;
+  border: 1px solid rgb(70, 156, 236);
+  border-radius: 8px;
+}
+
+.header{
+  text-transform: uppercase;
+}
+
+.button{
+  font-size: 16px;
+  width: 150px;
+  padding: 30px;
+  color: rgb(152, 205, 255);
+  background-color: rgb(50, 59, 77);
+  border: none;
+  letter-spacing: 0.2rem;
+  transition: all 1000ms;
+}
+.button:nth-child(1){
+  margin-right: 10px;
+  border-top-left-radius: 30px;
+}
+.button:nth-child(2){
+  border-bottom-right-radius: 30px;
+}
+
+button:hover{
+  color: rgb(240, 189, 196);
+}
