@@ -4,13 +4,12 @@ import WebAppTemplateStyles from "../webAppTemplate/WebAppTemplate.module.css"
 const NotExist = () => {
   return ( 
     <>
-    {/* <header className={WebAppTemplateStyles.header}>
+    <header className={WebAppTemplateStyles.header}>
         <Nav/>
-      </header> */}
+      </header>
     <div>
       <h2>The specified page does not exist</h2>
     </div>
-    <div><Nav/></div>
     </>
    );
 }
